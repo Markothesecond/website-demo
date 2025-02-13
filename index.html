@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            text-align: center;
+            /* Updated background with pink gradient */
+            background: linear-gradient(to bottom right, #FFB6C1, #FF69B4);
+            color: #e63946;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+            color: #FF1493;
+            background: linear-gradient(to right, #FF69B4, #FF1493);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .hearts {
+            font-size: 45px;
+            animation: bounce 1.5s infinite alternate;
+            margin-bottom: 20px;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        .message {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-family: 'Georgia', serif;
+            color: #FF1493;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Button Style */
+        .heart-button {
+            background-color: #a43841;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .heart-button:hover {
+            background-color: #ff5f5f;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(255, 99, 71, 0.6);
+        }
+
+        .heart-button:active {
+            transform: scale(0.9);
+        }
+
+        /* Full Screen GIF */
+        .cat-image {
+            display: none;
+            width: 100vw; /* Make it take up the full viewport width */
+            height: 100vh; /* Make it take up the full viewport height */
+            object-fit: cover; /* Ensure the image covers the screen area */
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Hide elements when the button is clicked */
+        .hide {
+            display: none;
+        }
+
+        /* Smooth fade-in for the cat image */
+        .cat-image.show {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 50px;
+            }
+            .hearts {
+                font-size: 35px;
+            }
+            .message {
+                font-size: 24px;
+            }
+            .heart-button {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+    <!-- Import Google Font 'Dancing Script' for fancier text -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Mwa! 💖</h1>
+    <div class="hearts">🌹🍫💘💝❤️💕🍷🐷💌</div>
+    <div class="message"> "Happy Valentine's Day Miss Jaime 💖 Wishing you a day filled with love and all the happiness you deserve"</div>
+    <button class="heart-button" onclick="showCatKiss()">Click For Surprise</button>
+
+    <!-- This is the surprise image (cat GIF) -->
+    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Cat Kiss GIF" class="cat-image" id="cat-image">
+
+    <script>
+        function showCatKiss() {
+            // Hide the page content with smooth fade
+            document.querySelector('h1').style.opacity = 0;
+            document.querySelector('.hearts').style.opacity = 0;
+            document.querySelector('.message').style.opacity = 0;
+            document.querySelector('.heart-button').style.opacity = 0;
+
+            // After a short delay, display the full-screen cat image
+            setTimeout(() => {
+                document.querySelector('.cat-image').classList.add('show');
+            }, 500); // Delay to ensure the content fades out first
+        }
+    </script>
+</body>
+</html>
